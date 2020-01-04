@@ -1,30 +1,36 @@
 $(function(){
     var huan = localStorage.getItem('username')
-    localStorage.removeItem('gameState')
     if(!huan){
         window.location.href = './index.html'
     }
-    $('#name-strong').html(huan)
     var socket = io("ws://localhost:5000/");
     var flag = location.search.includes('black');
     socket.on('join',(data)=>{
-        localStorage.setItem('red',data)
+        localStorage.setItem('black',data)
         if(!flag){
-            $('#next-name').html(localStorage.getItem('red'))
+            $('#next-name').html(localStorage.getItem('black'))
         }
         // 询问是否开始游戏对战
     })
+    $('#name-strong').html(huan)
     if(flag){
-        $('#next-name').html(localStorage.getItem('black'))
+        $('#next-name').html(localStorage.getItem('red'))
+        $('#fangzhu').html('你的名字是')
     }
     if(!flag){
+        // localStorage.removeItem('gameState')
+        $('#next-name').html(localStorage.getItem('black'))
+        
         setTimeout(() => {
+            console.log(window.redNameGrid)
             // 发送双盘棋盘状况,双方分数,双方按键,type
+            title = localStorage.getItem('title')
             socket.emit('chat message', JSON.stringify({
                 type: 1,
                 name:　huan,
-                red: window.redNameGrid,
-                black: window.redNameGrid
+                title,
+                red: localStorage.getItem('gameState'),
+                black: localStorage.getItem('gameState')
             }));
         }, 1);
     }

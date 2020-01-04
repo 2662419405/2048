@@ -22,6 +22,8 @@ layui.use(['form', 'laydate'], function(){
         if(res.data.code == 1){
           layer.alert('服务器创建成功',function(){
             window.localStorage.setItem('username',data.field.title)
+            window.localStorage.removeItem('black')
+            window.localStorage.setItem('title',data.field.username)
             window.parent.location.href = './double.html?red='+data.field.title+"&title="+data.field.username
           })
         }

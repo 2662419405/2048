@@ -16,9 +16,10 @@ app.use(Route.allowedMethods());
 io.on('connection', (socket) => {
   socket.on('chat message',async (msg) => {
     msg = JSON.parse(msg)
+    console.log(msg.red)
     // 房主操作
     if(msg.type == 1){
-      Room.updateOne({"redName": msg.name},{
+      Room.updateOne({title: msg.title},{
           red: JSON.stringify(msg.red),
           black: JSON.stringify(msg.black)
       },function(err,doc){

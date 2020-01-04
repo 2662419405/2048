@@ -56,13 +56,16 @@ $(function(){
     axios.get('http://localhost:5000/list').then((res)=>{
       var data = res.data.results;
       var socket = io("ws://localhost:5000/");
-      var title = data[$(this).parent().parent().index()].title
+      var oDom = data[$(this).parent().parent().index()];
+      var title = oDom.title
       socket.emit('chat message', JSON.stringify({
         type: 2,
         name: len,
-        title: data[$(this).parent().parent().index()].title
+        title: oDom.title
       }));
-      localStorage.setItem('black',data[$(this).parent().parent().index()].redName)
+      localStorage.setItem('red',oDom.redName)
+      localStorage.setItem('username',len)
+      localStorage.setItem('gameState', JSON.parse(oDom.red))
       window.parent.location.href = './double.html?black='+len+"&title="+title
     })
   })

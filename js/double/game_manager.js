@@ -33,8 +33,7 @@ GameManager.prototype.isGameTerminated = function () {
 
 // Set up the game
 GameManager.prototype.setup = function () {
-  var previousState = this.storageManager.getGameState();  
-
+  var previousState = this.storageManager.getGameState(); 
   // Reload the game from a previous game if present
   if (previousState) {
     this.grid        = new Grid(previousState.grid.size,
@@ -47,7 +46,6 @@ GameManager.prototype.setup = function () {
     // Add the initial tiles
     this.addStartTiles();
   }
-  window.redNameGrid = this.grid
   // Update the actuator
   this.actuate();
 };
