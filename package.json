@@ -4,7 +4,8 @@
   "description": "> 说明: :100: 最近迷上了2048,就在<a href=\"https://github.com/gabrielecirulli/2048\">github</a>找到了一个大佬的作品,下载下来之后就简单看了一下源码,就在思考如果能双方对战,比如给一个规定的时间,到达时间内双方可以比分数,是不是就很快乐啊,^-^ 本人属于行动派,想到了之后马上开始快速开发",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "nodemon ./server/main.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,13 @@
   },
   "homepage": "https://github.com/2662419405/2048#readme",
   "dependencies": {
+    "axios": "^0.19.0",
+    "fs": "0.0.1-security",
+    "http": "0.0.0",
     "koa": "^2.11.0",
-    "socket-io": "^1.0.0"
+    "koa-router": "^7.4.0",
+    "mongoose": "^5.8.4",
+    "socket-io": "^1.0.0",
+    "socket.io": "^2.3.0"
   }
 }
