@@ -2,3 +2,21 @@
   padding: 20px;
   box-sizing: border-box;
 }
+.room-class {
+  color: red;
+  font-size: 14px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  width: 110px;
+  display: inline-block;
+  text-align: center;
+}
+.room-content {
+  color: blue;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.2);
+  width: 110px;
+  display: inline-block;
+  text-align: center;
+}
+.layui-btn-warm {
+  margin-bottom: 2px;
+}

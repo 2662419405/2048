@@ -21,7 +21,11 @@ const models = {
         // 房间创建时间
         'time':{ type:String },
         // 结束标志
-        'flag':{ type:Boolean }
+        'flag':{ type:Boolean },
+        // 我方此次按键
+        'redType':{ type:String },
+        // 对方此次按键
+        'blackType':{ type:String },
     }
 }
 
