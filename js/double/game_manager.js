@@ -39,10 +39,11 @@ GameManager.prototype.setup = function () {
     this.grid        = new Grid(previousState.grid.size,
                                 previousState.grid.cells); // 按照缓存布局
     this.score       = previousState.score;
+    this.over        = false;
   } else {
     this.grid        = new Grid(this.size);
     this.score       = 0;
-
+    this.over        = false;
     // Add the initial tiles
     this.addStartTiles();
   }

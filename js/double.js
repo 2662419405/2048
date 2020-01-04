@@ -18,11 +18,9 @@ $(function(){
         $('#fangzhu').html('你的名字是')
     }
     if(!flag){
-        // localStorage.removeItem('gameState')
         $('#next-name').html(localStorage.getItem('black'))
         
         setTimeout(() => {
-            console.log(window.redNameGrid)
             // 发送双盘棋盘状况,双方分数,双方按键,type
             title = localStorage.getItem('title')
             socket.emit('chat message', JSON.stringify({
