@@ -1,6 +1,8 @@
 .container{
     padding: 20px;
     box-sizing: border-box;
+    height: 340px;
+    overflow-y: auto;
 }
 .room-class{
     color: red;

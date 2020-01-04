@@ -1,5 +1,6 @@
 function HTMLActuator() {
-  this.tileContainer    = document.querySelector(".tile-container");
+  this.tileContainer    = document.querySelector(".tile-container");  //本人
+  this.tileContainerNext    = document.querySelector(".tile-container1");  //对方
   this.scoreContainer   = document.querySelector(".score-container");
   this.bestContainer    = document.querySelector(".best-container");
   this.messageContainer = document.querySelector(".game-message");
@@ -9,8 +10,8 @@ function HTMLActuator() {
 
 HTMLActuator.prototype.actuate = function (grid, metadata) {
   var self = this;
-
   window.requestAnimationFrame(function () {
+    self.clearContainer(self.tileContainerNext);
     self.clearContainer(self.tileContainer);
 
     grid.cells.forEach(function (column) {
@@ -87,7 +88,9 @@ HTMLActuator.prototype.addTile = function (tile) {
   wrapper.appendChild(inner);
 
   // Put the tile on the board
+  var clone = wrapper.cloneNode(true);
   this.tileContainer.appendChild(wrapper);
+  this.tileContainerNext.appendChild(clone);
 };
 
 HTMLActuator.prototype.applyClasses = function (element, classes) {

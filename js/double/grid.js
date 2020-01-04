@@ -14,7 +14,6 @@ Grid.prototype.empty = function () {
       row.push(null);
     }
   }
-
   return cells;
 };
 

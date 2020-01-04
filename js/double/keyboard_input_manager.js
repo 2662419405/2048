@@ -50,6 +50,15 @@ KeyboardInputManager.prototype.listen = function () {
     if (!modifiers) {
       if (mapped !== undefined) {
         event.preventDefault();
+        var socket = io("ws://localhost:5000/");
+        socket.emit('chat message', JSON.stringify({
+          type: 1,
+          name: localStorage.getItem('username'),
+          red: window.redNameGrid,
+          black: window.redNameGrid,
+          redStore: 0,
+          blackStore: 0
+        }));
         self.emit("move", mapped);
       }
     }
