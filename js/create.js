@@ -34,3 +34,7 @@ layui.use(['form', 'laydate'], function(){
     return false;
   });
 })
+
+$(function(){
+  $('#username-sh').attr('value',localStorage.getItem('username'))
+})

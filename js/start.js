@@ -30,14 +30,15 @@ layui.use(['form', 'laydate'], function(){
 })
 
 $(function(){
+  $('#username-sh').attr('value',localStorage.getItem('username'))
   axios.get('http://localhost:5000/list').then((res)=>{
     var data = res.data.results;
     if(data.length == 0 ){
       $('#room-body').html('暂无房间,请创建房间')
     }else{
       for(var i=0;i<data.length;i++){
-        var str = `<div><span>`+"房间名称:&nbsp;"+"<span class='room-class'>"+data[i].title.substr(0,8)+"..."+"</span>"+
-        "房主:&nbsp;"+"<span class='room-content'>"+data[i].redName.substr(0,8)+"..."+"</span>"+
+        var str = `<div><span>`+"房间名称:&nbsp;"+"<span class='room-class'>"+data[i].title.substr(0,8)+"</span>"+
+        "房主:&nbsp;"+"<span class='room-content'>"+data[i].redName.substr(0,8)+"</span>"+
         "<button class='layui-btn layui-btn-warm'>加入房间</button>"+
         `</span></div>`;
         $('#room-body').append($(str))
@@ -52,6 +53,17 @@ $(function(){
       $('#username-sh').focus()
       return false;
     }
-    
+    axios.get('http://localhost:5000/list').then((res)=>{
+      var data = res.data.results;
+      var socket = io("ws://localhost:5000/");
+      var title = data[$(this).parent().parent().index()].title
+      socket.emit('chat message', JSON.stringify({
+        type: 2,
+        name: len,
+        title: data[$(this).parent().parent().index()].title
+      }));
+      localStorage.setItem('black',data[$(this).parent().parent().index()].redName)
+      window.parent.location.href = './double.html?black='+len+"&title="+title
+    })
   })
 })

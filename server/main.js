@@ -16,24 +16,27 @@ app.use(Route.allowedMethods());
 io.on('connection', (socket) => {
   socket.on('chat message',async (msg) => {
     msg = JSON.parse(msg)
-    // 判断是谁发来的数据
-    console.log(msg.red)
+    // 房主操作
     if(msg.type == 1){
-      Room.update({"redName": msg.name},{
+      Room.updateOne({"redName": msg.name},{
           red: JSON.stringify(msg.red),
           black: JSON.stringify(msg.black)
       },function(err,doc){
         console.log(doc)
         io.emit('send message', doc);
       });
-    }else{
-      Room.update({blackName: msg.name},{
-          red: msg.red,
-          black: msg.black,
-      },function(err,doc){
-        console.log(doc)
-        io.emit('send message', doc);
-      });
+    }if(msg.type == 2){
+      // 黑方加入战斗
+      Room.findOne({title:msg.title},{},function(err,doc){
+        var _id = doc._id;
+        Room.updateOne({_id},{
+          sum: 2,
+          blackName: msg.name,
+        },function(){
+          // 告诉对方有人加入了战斗
+          io.emit('join', msg.name);
+        })
+      })
     }
     });
   socket.on('disconnect', () => {
@@ -43,5 +46,5 @@ io.on('connection', (socket) => {
  
 // 监听端口
 server.listen(5000, () => {
-  console.log('listening on *:5000');
+  console.log('服务器监听5000端口');
 });
