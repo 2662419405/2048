@@ -1,0 +1,23 @@
+{
+  "name": "2048",
+  "version": "1.0.0",
+  "description": "> 说明: :100: 最近迷上了2048,就在<a href=\"https://github.com/gabrielecirulli/2048\">github</a>找到了一个大佬的作品,下载下来之后就简单看了一下源码,就在思考如果能双方对战,比如给一个规定的时间,到达时间内双方可以比分数,是不是就很快乐啊,^-^ 本人属于行动派,想到了之后马上开始快速开发",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/2662419405/2048.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/2662419405/2048/issues"
+  },
+  "homepage": "https://github.com/2662419405/2048#readme",
+  "dependencies": {
+    "koa": "^2.11.0"
+  }
+}

@@ -1,0 +1,71 @@
+canvas {
+  position: fixed;
+  right: 0px;
+  bottom: 0px;
+  min-width: 100%;
+  min-height: 100%;
+  height: auto;
+  width: auto;
+  z-index: -1;
+}
+
+body{
+  overflow: hidden;
+}
+
+h2{
+  text-align: center;
+  padding: 20px;
+  font-size: 2em;
+  color: orange ;
+}
+
+.container{
+  width: 1000px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  flex-direction: column;
+  .item{
+    border-radius: 5px;
+    background-color: #1fc8db;
+    background-image: linear-gradient(141deg,#0efc93 0%,#1fc8db 51%,#2cb5e8 75%);
+    padding: 30px 50px;
+    color: #ffffff;
+    transition: all 0.5s;
+    cursor: pointer;
+    flex: 0 0 auto;
+    margin-bottom: 20px;
+    font-weight: 600;
+    box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  .item span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
+
+  .item span:after {
+    content: '»';
+    position: absolute;
+    opacity: 0;
+    top: -30px;
+    right: -40px;
+    transition: 0.5s;
+    font-size: 2em;
+  }
+
+  .item:hover span {
+    padding-right: 35px;
+  }
+
+  .item:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+}
