@@ -8,6 +8,16 @@ canvas {
   width: auto;
   z-index: -1;
 }
+.content {
+  position: fixed;
+  top: 0;
+  margin: auto;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 1000px;
+  height: 500px;
+}
 body {
   overflow: hidden;
 }
@@ -51,11 +61,15 @@ h2 {
   position: relative;
   transition: 0.5s;
 }
+.container .item a {
+  color: #ffffff;
+  text-decoration: none;
+}
 .container .item span:after {
   content: "»";
   position: absolute;
   opacity: 0;
-  top: -30px;
+  top: -23px;
   right: -40px;
   transition: 0.5s;
   font-size: 2em;

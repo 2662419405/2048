@@ -55,3 +55,33 @@ window.onload = function(){
     draw();
     setInterval(draw,35);
 };
+
+//  玩家对战选择
+$('#gameStart').click(function(){
+    layui.use('layer', function(){
+        //iframe层
+        layer.open({
+            type: 2,
+            title: '选择模式',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['500px', '400px'],
+            content: './start.html' //iframe的url
+        }); 
+    });
+})
+
+//  创建房间
+$('#createStart').click(function(){
+    layui.use('layer', function(){
+        //iframe层
+        layer.open({
+            type: 2,
+            title: '创建房间',
+            shadeClose: true,
+            shade: 0.8,
+            area: ['400px', '250px'],
+            content: './create.html' //iframe的url
+        }); 
+    });
+})

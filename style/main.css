@@ -109,6 +109,10 @@ a {
 strong.important {
   text-transform: uppercase; }
 
+strong{
+  margin-left: 20px;
+}
+
 hr {
   border: none;
   border-bottom: 1px solid #d8d4d0;
