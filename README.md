@@ -8,3 +8,11 @@
 - [x] 加入对战
 - [x] 普通游戏
 - [ ] 正常对战
+
+## 预计框架选择
+
+* koa+koa-router+axios+socket.io+mongoose
+
+## 安装
+
+> 电脑要具备mongodb和node

@@ -15,6 +15,7 @@
 
   <meta name="HandheldFriendly" content="True">
   <meta name="MobileOptimized" content="320">
+  <script src="https://cdn.bootcss.com/socket.io/2.3.0/socket.io.js"></script>
   <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
 </head>
 <body>
@@ -24,12 +25,11 @@
       <h1 class="title">2048</h1>
       <div class="scores-container">
         <div class="score-container">0</div>
-        <div class="best-container">0</div>
       </div>
     </div>
 
     <div class="above-game">
-      <p class="game-intro">感受魔改版本的2048 !<strong id="name-strong"></strong></p>
+      <p class="game-intro">尊贵的房主: <strong id="name-strong"></strong></p>
       <a class="restart-button">新的游戏</a>
     </div>
 
@@ -79,21 +79,17 @@
       <h1 class="title">2048</h1>
       <div class="scores-container">
         <div class="score-container">0</div>
-        <div class="best-container">0</div>
       </div>
     </div>
 
     <div class="above-game">
-      <p class="game-intro">感受魔改版本的2048 !<strong><a href="#">退出房间</a></strong></p>
-      <a class="restart-button">新的游戏</a>
+      <p class="game-intro">你的对手是: <strong></strong></p>
     </div>
 
     <div class="game-container">
       <div class="game-message">
         <p></p>
         <div class="lower">
-	        <a class="keep-playing-button">继续</a>
-          <a class="retry-button">重新开始</a>
         </div>
       </div>
 
@@ -134,11 +130,11 @@
   <script src="js/bind_polyfill.js"></script>
   <script src="js/classlist_polyfill.js"></script>
   <script src="js/animframe_polyfill.js"></script>
-  <script src="js/keyboard_input_manager.js"></script>
+  <script src="js/double/keyboard_input_manager.js"></script>
   <script src="js/html_actuator.js"></script>
   <script src="js/grid.js"></script>
   <script src="js/tile.js"></script>
-  <script src="js/local_storage_manager.js"></script>
+  <script src="js/double/local_storage_manager.js"></script>
   <script src="js/game_manager.js"></script>
   <script src="js/application.js"></script>
   <script src="./js/jquery.min.js"></script>

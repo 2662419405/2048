@@ -15,7 +15,7 @@ io.on('connection', (socket) => {
     io.emit('chat message', msg);
   });
   socket.on('disconnect', () => {
-    console.log('user disconnected');
+    console.log('用户离开了');
   });
 });
  
