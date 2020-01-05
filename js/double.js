@@ -42,8 +42,9 @@ $(function(){
     socket.on('change view',(data)=>{
         // 房主做了修改,应该修改挑战者的棋盘
         if(data.type == 1 && flag){
+            console.log(requestAnimationFrame.prototype)
             localStorage.setItem('gameState',data.red)
-            GameManager.prototype.actuate.call(GameManager.prototype.__proto__)
+            // oDOm.actuate()
         }
     })
 })
