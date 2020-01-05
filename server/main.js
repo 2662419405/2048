@@ -16,15 +16,14 @@ app.use(Route.allowedMethods());
 io.on('connection', (socket) => {
   socket.on('chat message',async (msg) => {
     msg = JSON.parse(msg)
-    console.log(msg.red)
+    console.log(msg)
     // 房主操作
     if(msg.type == 1){
       Room.updateOne({title: msg.title},{
           red: JSON.stringify(msg.red),
           black: JSON.stringify(msg.black)
       },function(err,doc){
-        console.log(doc)
-        io.emit('send message', doc);
+        io.emit('send message', doc); //房间初始化完成
       });
     }if(msg.type == 2){
       // 黑方加入战斗
@@ -38,10 +37,26 @@ io.on('connection', (socket) => {
           io.emit('join', msg.name);
         })
       })
+    }if(msg.type == 3){
+      Room.findOne({title:msg.title},{},function(err,doc){
+        var __v = doc.__v;
+        Room.updateOne({__v},{
+          red: msg.red,
+          redType: msg.redType
+        },function(){
+          io.emit('change view',
+            {
+              type: 1,  // 代表房主做了修改
+              red: msg.red, // 挑战者的棋盘
+              redType: msg.redType
+            }
+          );
+        })
+      })
     }
     });
-  socket.on('disconnect', () => {
-    console.log('用户离开了');
+  socket.on('disconnect', (data) => {
+    console.log('用户离开了'+data);
   });
 });
  

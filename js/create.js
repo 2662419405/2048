@@ -16,8 +16,6 @@ layui.use(['form', 'laydate'], function(){
     var index = layer.alert(JSON.stringify(data.field), {
       title: '最终的提交信息'
     },function(){
-      // var socket = io("ws://localhost:5000/");
-      // socket.emit('chat message', JSON.stringify(data.field));
       axios.get('http://localhost:5000/room',{params:{redName:data.field.title,title:data.field.username}}).then((res)=>{
         if(res.data.code == 1){
           layer.alert('服务器创建成功',function(){

@@ -24,6 +24,7 @@ KeyboardInputManager.prototype.on = function (event, callback) {
 
 KeyboardInputManager.prototype.emit = function (event, data) {
   var callbacks = this.events[event];
+  
   if (callbacks) {
     callbacks.forEach(function (callback) {
       callback(data);
@@ -51,15 +52,14 @@ KeyboardInputManager.prototype.listen = function () {
       if (mapped !== undefined) {
         event.preventDefault();
         var socket = io("ws://localhost:5000/");
-        socket.emit('chat message', JSON.stringify({
-          type: 1,
-          name: localStorage.getItem('username'),
-          red: window.redNameGrid,
-          black: window.redNameGrid,
-          redStore: 0,
-          blackStore: 0
-        }));
         self.emit("move", mapped);
+        socket.emit('chat message', JSON.stringify({
+          type: 3,
+          name: localStorage.getItem('username'),
+          title: localStorage.getItem('title'),
+          red: localStorage.getItem('gameState'),
+          redType: event.which
+        }));
       }
     }
 
