@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/2662419405/2048#readme",
   "dependencies": {
-    "axios": "^0.19.0",
+    "axios": "^0.21.1",
     "fs": "0.0.1-security",
     "http": "0.0.0",
     "koa": "^2.11.0",
