@@ -27,6 +27,6 @@
     "koa2-cors": "^2.0.6",
     "mongoose": "^5.8.4",
     "socket-io": "^1.0.0",
-    "socket.io": "^2.3.0"
+    "socket.io": "^2.5.0"
   }
 }
